@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Playwright test results
+test-results/
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# OS junk files
+.DS_Store
+Thumbs.db
