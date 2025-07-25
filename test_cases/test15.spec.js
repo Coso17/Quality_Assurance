@@ -1,0 +1,33 @@
+import { test, expect,chromium } from '@playwright/test';
+
+test('test', async () => {
+    const browser = await chromium.launch({ headless: false, slowMo: 800 });
+        const context = await browser.newContext();
+        const page = await context.newPage();
+  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+  await page.getByRole('textbox', { name: 'Username' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: 'PIM' }).click();
+  await page.getByRole('button', { name: ' Add' }).click();
+  await page.getByRole('textbox', { name: 'First Name' }).click();
+  await page.getByRole('textbox', { name: 'First Name' }).fill('gd');
+  await page.getByRole('textbox', { name: 'Middle Name' }).click();
+  await page.getByRole('textbox', { name: 'Middle Name' }).fill('fds');
+  await page.getByRole('textbox', { name: 'Last Name' }).click();
+  await page.getByRole('textbox', { name: 'Last Name' }).fill('fff');
+  await page.getByRole('textbox').nth(4).click();
+  await page.getByRole('textbox').nth(4).fill('7578');
+  await page.locator('form span').click();
+  await page.locator('div:nth-child(4) > .oxd-grid-2 > div > .oxd-input-group > div:nth-child(2) > .oxd-input').click();
+  await page.locator('.oxd-input.oxd-input--focus').fill('jhfdbbbjh');
+  await page.locator('input[type="password"]').first().click();
+  await page.locator('input[type="password"]').first().fill('123gigg');
+  await page.locator('input[type="password"]').nth(1).click();
+  await page.locator('input[type="password"]').nth(1).fill('123gigg');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await expect(page.locator('#oxd-toaster_1')).toContainText('SuccessSuccessfully Saved×');
+  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/211');
+});
